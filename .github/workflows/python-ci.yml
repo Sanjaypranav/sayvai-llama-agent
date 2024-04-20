@@ -16,17 +16,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Poetry
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python -
+          source $HOME/.poetry/env
+
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: poetry install
 
       - name: Lint with flake8
         run: |
-          flake8 .
+          poetry run flake8 .
 
   test:
     name: Test with pytest
@@ -36,17 +41,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Poetry
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python -
+          source $HOME/.poetry/env
+
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: poetry install
 
       - name: Run pytest
         run: |
-          pytest
+          poetry run pytest
 
   format:
     name: Format code with Black and isort
@@ -55,15 +65,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Poetry
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
 
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python -
+          source $HOME/.poetry/env
+
       - name: Install dependencies
-        run: pip install black isort
+        run: poetry install
 
       - name: Format code
         run: |
-          black .
-          isort .
+          poetry run black .
+          poetry run isort .
