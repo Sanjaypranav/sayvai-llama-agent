@@ -47,9 +47,7 @@ jobs:
           python-version: 3.11
 
       - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python -
-          source $HOME/.poetry/env
+        run: pip install poetry
 
       - name: Install dependencies
         run: poetry install
@@ -71,9 +69,7 @@ jobs:
           python-version: 3.11
 
       - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python -
-          source $HOME/.poetry/env
+        run: pip install poetry
 
       - name: Install dependencies
         run: poetry install
