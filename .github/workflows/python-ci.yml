@@ -22,14 +22,14 @@ jobs:
           python-version: 3.11
 
       - name: Install Poetry
-        run: pip install poetry
+        run: pip install poetry pylint
 
       - name: Install dependencies
         run: poetry install
 
       - name: Lint with flake8
-        run: |
-          poetry run flake8 .
+        run: pylint .
+          
 
   test:
     name: Test with pytest
