@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sayvai_llama"
+version = "0.0.1"
+description = ""
+authors = ["sanjaypranav <sanjaypriya195@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pylint = "^3.1.0"
+black = "^24.4.0"
+pytest = "^8.1.1"
+fastapi = {extras = ["all"], version = "^0.110.2"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
